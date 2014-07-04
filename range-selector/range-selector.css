@@ -1,0 +1,241 @@
+.control-range {
+	position: relative;
+	display: inline-block;
+	width:220px;
+	height:10px;
+	margin: 30px 40px 10px;
+	background: #e5e5e5;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 0 2px 0 rgba(0,0,0,0.16);
+	   -moz-box-shadow: inset 0 2px 0 rgba(0,0,0,0.16);
+	        box-shadow: inset 0 2px 0 rgba(0,0,0,0.16);
+	-webkit-user-select: none;
+	   -moz-user-select: -moz-none;
+	    -ms-user-select: none;
+	        user-select: none;
+
+	background: rgb(0,178,236); /* Old browsers */
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAOXl5f///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat;
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAOXl5f///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat, -moz-linear-gradient(left, rgba(0,178,236,1) 0%, rgba(0,131,174,1) 100%);
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAOXl5f///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,178,236,1)), color-stop(100%,rgba(0,131,174,1)));
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAOXl5f///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat, -webkit-linear-gradient(left, rgba(0,178,236,1) 0%,rgba(0,131,174,1) 100%);
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAOXl5f///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat, -o-linear-gradient(left, rgba(0,178,236,1) 0%,rgba(0,131,174,1) 100%);
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAOXl5f///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat, -ms-linear-gradient(left, rgba(0,178,236,1) 0%,rgba(0,131,174,1) 100%);
+	background: url(data:image/gif;base64,R0lGODlhAQABAPAAAOXl5f///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==) no-repeat, linear-gradient(to right, rgba(0,178,236,1) 0%,rgba(0,131,174,1) 100%);
+	background-size: 100% 10px, 100% 10px;
+	background-position: 0 0, 0 0;
+}
+.control-range:before,
+.control-range:after {
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	top:-6px;
+	color: #959595;
+	font-weight: bold;
+}
+.control-range:before {
+	content: '0';
+	right:100%;
+	padding-right: 20px
+}
+.control-range:after {
+	content: attr(data-max);
+	left:100%;
+	padding-left: 20px
+}
+
+.control-range .handle {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	margin-top: -10px;
+	margin-left: -15px;
+	z-index:2;
+	background: #fff;
+	border: 1px solid #a6a6a6;
+	border-radius: 15px;
+	-webkit-box-shadow: 0 2px 1px rgba(0,0,0,0.18);
+	   -moz-box-shadow: 0 2px 1px rgba(0,0,0,0.18);
+	        box-shadow: 0 2px 1px rgba(0,0,0,0.18);
+	cursor: col-resize;
+}
+.control-range .handle:hover,
+.control-range .handle:focus {
+	border-color: #7f7f7f;
+}
+.control-range .handle:focus {
+	outline: none;
+	background: #f9f9f9;
+}
+.control-range .handle:active {
+	cursor: col-resize;
+}
+.control-range:not(.drag) {
+	-webkit-transition: background-position 0.2s ease-out;
+	   -moz-transition: background-position 0.2s ease-out;
+	    -ms-transition: background-position 0.2s ease-out;
+	     -o-transition: background-position 0.2s ease-out;
+	        transition: background-position 0.2s ease-out;
+}
+.control-range:not(.drag) .handle {
+	-webkit-transition: left 0.2s ease-out;
+	   -moz-transition: left 0.2s ease-out;
+	    -ms-transition: left 0.2s ease-out;
+	     -o-transition: left 0.2s ease-out;
+	        transition: left 0.2s ease-out;
+}
+
+.control-range .handle:after {
+	content:'';
+	position: absolute;
+	top:50%; left:50%;
+	width: 12px; height: 12px;
+	margin: -6px;
+	background: #00a3df;
+	border-radius: 6px;
+	-webkit-box-shadow: inset 0 2px 0 rgba(0,0,0,0.31);
+	   -moz-box-shadow: inset 0 2px 0 rgba(0,0,0,0.31);
+	        box-shadow: inset 0 2px 0 rgba(0,0,0,0.31);
+}
+.control-range .handle:hover:after,
+.control-range .handle:focus:after {
+	background: #008fc4;
+}
+
+.control-range .handle .tooltip {
+	position: absolute;
+	top: 0;
+	width: 36px;
+	margin-left: -4px;
+	padding: 2px 0;
+	background: #fff;
+	border:1px solid #b6b6b6;
+	-webkit-border-radius: 3px;
+	        border-radius: 3px;
+	-webkit-box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+	   -moz-box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+	        box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+	opacity: 0;
+	height: 0;
+	text-align: center;
+	font-size: 12px;
+
+	-webkit-transition: opacity 1s, height 1s step-end, top 1s step-end;
+	   -moz-transition: opacity 1s, height 1s step-end, top 1s step-end;
+	    -ms-transition: opacity 1s, height 1s step-end, top 1s step-end;
+	     -o-transition: opacity 1s, height 1s step-end, top 1s step-end;
+	        transition: opacity 1s, height 1s step-end, top 1s step-end;
+
+	-webkit-transition-delay: 0.5s;
+	   -moz-transition-delay: 0.5s;
+	    -ms-transition-delay: 0.5s;
+	     -o-transition-delay: 0.5s;
+	        transition-delay: 0.5s;
+
+}
+
+.control-range .handle .tooltip .arrow,
+.control-range .handle .tooltip .arrow:before,
+.control-range .handle .tooltip .arrow:after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left:50%;
+	height: 0;
+	width: 0;
+	margin-left: -3px;
+	border: solid transparent;
+	pointer-events: none;
+}
+
+.control-range .handle .tooltip .arrow {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #fff;
+	border-width: 6px;
+	margin-left: -6px;
+}
+.control-range .handle .tooltip .arrow:before {
+	top: 0;
+	z-index:-1;
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #b6b6b6;
+	border-width: 7px;
+	-webkit-transform: translate(-4px, -5.5px);
+	   -moz-transform: translate(-4px, -5.5px);
+	    -ms-transform: translate(-4px, -5.5px);
+	     -o-transform: translate(-4px, -5.5px);
+	        transform: translate(-4px, -5.5px);
+}
+.control-range .handle .tooltip .arrow:after {
+	top: 0;
+	z-index:-2;
+	border-color: rgba(0,0,0, 0);
+	border-top-color: rgba(0,0,0,0.08);
+	border-width: 7px;
+	-webkit-transform: translate(-4px, -2px);
+	   -moz-transform: translate(-4px, -2px);
+	    -ms-transform: translate(-4px, -2px);
+	     -o-transform: translate(-4px, -2px);
+	        transform: translate(-4px, -2px);
+}
+
+
+
+
+.control-range .handle:hover .tooltip,
+.control-range .handle:focus .tooltip,
+.control-range.drag .handle .tooltip {
+	opacity: 1;
+	height: 22px;
+	top: -32px;
+
+	-webkit-transition: opacity 0.5s;
+	   -moz-transition: opacity 0.5s;
+	    -ms-transition: opacity 0.5s;
+	     -o-transition: opacity 0.5s;
+	        transition: opacity 0.5s;
+
+	-webkit-transition-delay: 0.25s;
+	   -moz-transition-delay: 0.25s;
+	    -ms-transition-delay: 0.25s;
+	     -o-transition-delay: 0.25s;
+	        transition-delay: 0.25s;
+}
+.control-range .handle:focus .tooltip {
+	-webkit-transition: opacity 0.2s;
+	   -moz-transition: opacity 0.2s;
+	    -ms-transition: opacity 0.2s;
+	     -o-transition: opacity 0.2s;
+	        transition: opacity 0.2s;
+
+	-webkit-transition-delay: 0;
+	   -moz-transition-delay: 0;
+	    -ms-transition-delay: 0;
+	     -o-transition-delay: 0;
+	        transition-delay: 0;
+}
+
+
+
+input[type="range"] {
+    -webkit-animation-duration: 0.001s;
+    -webkit-animation-name: nodeInserted;
+    -moz-animation-duration: 0.001s;
+    -moz-animation-name: nodeInserted;
+    animation-duration: 0.001s;
+    animation-name: nodeInserted;
+}
+
+@-webkit-keyframes nodeInserted {  
+	from { opacity: 0.99; }
+	to { opacity: 1; }  
+}
+@-moz-keyframes nodeInserted {  
+	from { opacity: 0.99; }
+	to { opacity: 1; }  
+}
+@keyframes nodeInserted {  
+	from { opacity: 0.99; }
+	to { opacity: 1; }  
+}
